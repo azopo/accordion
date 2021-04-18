@@ -5,27 +5,28 @@
       <p class="main__fruit" @click="isActive = !isActive">{{ fruit.title }}</p>
       <!--        показываю если кликнул-->
       <div class="country__container">
-        <p
-          v-show="isActive"
-          class="main__country"
-          v-for="country in fruit.country"
-          :key="country.title"
-          @click="country.items.hide = !country.items.hide"
+        <div
+            v-show="isActive"
+            class="main__country"
+            v-for="country in fruit.country"
+            :key="country.title"
+            @click="country.items.hide = !country.items.hide"
         >
           <!--        country.items.hide = !country.items.hide - изменяю внутренее свойство обьекта-->
           {{ country.title }}
-          <span
-            class="main__country-item"
-            v-for="(item, index) in country.items"
-            @click.stop="active"
-            :key="item"
+          <div
+              @click.stop='choice($event,  country.title, fruit.title, index)'
+              ref="country-item"
+              v-for="(item, index) in country.items"
+              :key="item"
           >
-            <span v-show="index !== 'hide'" v-if="country.items.hide">{{
-              item
-            }}</span>
+            <div class="main__country-item" v-show="index !== 'hide'" v-if="country.items.hide">{{
+                item
+              }}
+            </div>
             <!--          index != 'hide' - удаляю последнее свойство обьекта из выборки-->
-          </span>
-        </p>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -33,18 +34,23 @@
 
 <script>
 export default {
+  emits: ['my-choice'],
   props: {
     fruit: Object,
   },
   data() {
     return {
       isActive: false, //если кликнул по фрукту
+      lable: '',
     };
   },
   methods: {
-    active(event) {
-      event.target.classList.add('active')
-    },
+    choice(event, country, fruit) {
+      this.lable = fruit + " => " + country + " => " + event.target.innerText
+      this.$emit('my-choice', {
+        lable: this.lable
+      })
+    }
   },
   name: "TheAccordion",
 };
@@ -53,6 +59,7 @@ export default {
 <style scoped>
 .main__container {
   display: flex;
+  justify-content: center;
 }
 
 .main__country {
@@ -62,11 +69,12 @@ export default {
 }
 
 .main__country-item {
-  display: none;
   padding-top: 20px;
+  font-style: italic;
 }
-.active{
-  display: block;
+
+.main__country-item:hover {
   color: blue;
 }
+
 </style>

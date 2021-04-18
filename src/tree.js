@@ -5,25 +5,25 @@ export default {
       turkey: {
         title: "Турція",
         items: {
-          firstItem: "Великі",
-          secondItem: "Середні",
-          thirdItem: "Маленькі",
+          1: "Великі",
+          2: "Середні",
+          3: "Маленькі",
           hide: false,
         },
       },
       spain: {
         title: "Іспанія",
         items: {
-          firstItem: "Середні",
-          secondItem: "Великі",
+          1: "Середні",
+          2: "Великі",
           hide: false,
         },
       },
       tunis: {
         title: "Туніс",
         items: {
-          firstItem: "Середні",
-          secondItem: "Маленькі",
+          1: "Середні",
+          2: "Маленькі",
           hide: false,
         },
       },
@@ -35,16 +35,16 @@ export default {
       Ukraine: {
         title: "Україна",
         items: {
-          firstItem: "Голден",
-          secondItem: "Гала",
+          1: "Голден",
+          2: "Гала",
           hide: false,
         },
       },
       Poland: {
         title: "Польща",
         items: {
-          firstItem: "Голден",
-          secondItem: "Кальвін",
+          1: "Голден",
+          2: "Кальвін",
           hide: false,
         },
       },
