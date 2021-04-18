@@ -1,26 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <the-accordion :fruit="tree.oranges"></the-accordion>
+  <the-accordion :fruit="tree.apple"></the-accordion>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import TheAccordion from "@/TheAccordion";
+import tree from "./tree"; // беру данные из внешнего обьекта
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  components: { TheAccordion },
+  data() {
+    return {
+      tree,
+    };
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
