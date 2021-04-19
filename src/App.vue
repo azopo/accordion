@@ -1,7 +1,11 @@
 <template>
-  <the-accordion :fruit="tree.oranges" @my-choice="choise"></the-accordion>
-  <the-accordion :fruit="tree.apple" @my-choice="choise"></the-accordion>
-  <p class="main__lable">{{lable.lable}}</p>
+  <div class="container">
+    <div class="accordion">
+      <the-accordion :fruit="tree.oranges" @my-choice="choise"></the-accordion>
+      <the-accordion :fruit="tree.apple" @my-choice="choise"></the-accordion>
+    </div>
+    <p class="main__lable">{{ lable.lable }}</p>
+  </div>
 </template>
 
 <script>
@@ -12,19 +16,24 @@ export default {
   data() {
     return {
       tree,
-      lable:""
+      lable: "",
     };
   },
-  methods:{
-    choise(data){
-      this.lable = data
-    }
-  }
+  methods: {
+    choise(data) {
+      this.lable = data;
+    },
+  },
 };
 </script>
 <style>
-.main__lable{
-  font-size: 250%;
-  text-align: center;
+.main__lable {
+  font-size: 30px;
+  margin-right: 50px;
+  align-self: center;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

@@ -32,7 +32,7 @@ export default {
   apple: {
     title: "Яблука",
     country: {
-      Ukraine: {
+      ukraine: {
         title: "Україна",
         items: {
           1: "Голден",
@@ -40,7 +40,7 @@ export default {
           hide: false,
         },
       },
-      Poland: {
+      poland: {
         title: "Польща",
         items: {
           1: "Голден",
